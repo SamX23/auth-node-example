@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const session = require("express-session");
 const flash = require("express-flash");
-const { PORT = 5050 } = process.env;
+const { PORT = 8080 } = process.env;
 
 app.use(express.urlencoded({ extended: false }));
 
