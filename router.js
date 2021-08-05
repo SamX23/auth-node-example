@@ -11,4 +11,8 @@ router.post("/register", auth.register);
 router.post("/login", auth.login);
 router.get("/whoami", restrict, auth.whoami);
 
+// JWT
+router.post("/auth/register", auth.register);
+router.post("/auth/login", auth.loginJWT);
+
 module.exports = router;
