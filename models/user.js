@@ -20,15 +20,15 @@ module.exports = (sequelize, DataTypes) => {
     checkPassword = (password) => bcrypt.compareSync(password, this.password);
 
     generateToken = () => {
-      // Jangan memasukkan password ke dalam payload
       const payload = {
         id: this.id,
         username: this.username,
       };
-      // Rahasia ini nantinya kita pakai untuk memverifikasi apakah token ini benar-benar berasal dari aplikasi kita
+
       const rahasia = "Ini rahasia ga boleh disebar-sebar";
-      // Membuat token dari data-data diatas
+
       const token = jwt.sign(payload, rahasia);
+
       return token;
     };
 

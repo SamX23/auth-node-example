@@ -12,6 +12,7 @@ function format(user) {
 
 module.exports = {
   index: (req, res) => res.render("register"),
+
   register: (req, res, next) => {
     User.register(req.body)
       .then((user) => {
@@ -19,13 +20,8 @@ module.exports = {
       })
       .catch((err) => next(err));
   },
-  login: passport.authenticate("local", {
-    successRedirect: "/whoami",
-    failureRedirect: "/login",
-    failureFlash: true,
-  }),
 
-  loginJWT: (req, res) => {
+  login: (req, res) => {
     User.authenticate(req.body).then((user) => {
       res.json(format(user));
     });

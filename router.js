@@ -7,12 +7,10 @@ router.get("/", restrict, (req, res) => res.render("index"));
 router.get("/register", auth.index);
 router.get("/login", login.index);
 
-router.post("/register", auth.register);
-router.post("/login", auth.login);
 router.get("/whoami", restrict, auth.whoami);
 
 // JWT
 router.post("/auth/register", auth.register);
-router.post("/auth/login", auth.loginJWT);
+router.post("/auth/login", auth.login);
 
 module.exports = router;
