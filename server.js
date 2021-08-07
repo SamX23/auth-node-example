@@ -16,7 +16,6 @@ app.use(
 
 const passport = require("./lib/passport");
 app.use(passport.initialize());
-app.use(passport.session());
 
 app.use(flash());
 

@@ -1,4 +1,3 @@
-const passport = require("../lib/passport");
 const { User } = require("../models");
 
 function format(user) {
@@ -16,7 +15,7 @@ module.exports = {
   register: (req, res, next) => {
     User.register(req.body)
       .then((user) => {
-        res.redirect(`/?username=${user}`);
+        res.redirect(`/`);
       })
       .catch((err) => next(err));
   },
@@ -27,5 +26,8 @@ module.exports = {
     });
   },
 
-  whoami: (req, res) => res.render("profile", req.user.dataValues),
+  whoami: (req, res) => {
+    const currentUser = req.user;
+    res.json(currentUser);
+  },
 };
