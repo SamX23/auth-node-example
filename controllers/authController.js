@@ -6,7 +6,7 @@ module.exports = {
   register: (req, res, next) => {
     User.register(req.body)
       .then((user) => {
-        res.redirect(`/?username=${user}`);
+        res.redirect(`/login`);
       })
       .catch((err) => next(err));
   },
